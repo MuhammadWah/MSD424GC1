@@ -1,0 +1,32 @@
+<ion-card></ion-card>
+  <ion-card-header>
+    <ion-card-title>Leave Your Feedback</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="feedbackForm">
+      <ion-item>
+        <ion-label position="stacked">Rating:</ion-label>
+        <ion-rating [(ngModel)]="rating" name="rating"></ion-rating>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Feedback Type:</ion-label>
+        <ion-select [(ngModel)]="feedbackType" name="feedbackType">
+          <ion-select-option value="bug">Bug Report</ion-select-option>
+          <ion-select-option value="feature">Feature Request</ion-select-option>
+          <ion-select-option value="general">General Feedback</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Feedback:</ion-label>
+        <ion-textarea [(ngModel)]="feedback" name="feedback" formControlName="feedback"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email (optional):</ion-label>
+        <ion-input [(ngModel)]="email" name="email" type="email"></ion-input>
+      </ion-item>
+    </form>
+  </ion-card-content>
+  <ion-card-footer>
+    <ion-button expand="block" (click)="submitFeedback()">Submit Feedback</ion-button>
+  </ion-card-footer>
+</ion-card>
